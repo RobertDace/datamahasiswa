@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Akun</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-modal" style="display: block;">
+    <div class="login-content">
+      <h2>Register Akun</h2>
+      <form action="register.php" method="post">
+        <input type="text" name="userid" placeholder="User ID" required />
+        <input type="text" name="nama" placeholder="Nama Lengkap" required />
+        <input type="password" name="passw" placeholder="Password" required />
+        <button type="submit">Daftar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.querySelector("form");
+    form.addEventListener("submit", function (e) {
+      const userid = form.userid.value.trim();
+      const nama = form.nama.value.trim();
+      const passw = form.passw.value.trim();
+
+      if (!userid || !nama || !passw) {
+        alert("Semua field harus diisi!");
+        e.preventDefault();
+      } else if (passw.length < 6) {
+        alert("Password minimal 6 karakter.");
+        e.preventDefault();
+      }
+    });
+  </script>
+
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>feather.replace();</script>
+</body>
+</html>
